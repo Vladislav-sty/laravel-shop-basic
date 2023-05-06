@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,7 +51,7 @@ Route::group(['middleware'=>'set_locale'], function(){
         });
     });
 
-    Route::get('/','\App\Http\Controllers\HomeController@index')->name('index');
+    Route::get('/',[HomeController::class, 'index'])->name('index');
 
     Route::get('products', '\App\Http\Controllers\ProductsController@allProducts')->name('products');
 
