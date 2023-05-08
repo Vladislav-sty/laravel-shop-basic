@@ -19,7 +19,6 @@
                         <th scope="col">Опис</th>
                         <th scope="col">Опис EN</th>
                         <th scope="col">Категорія</th>
-                        <th scope="col">Картинка</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,9 +30,6 @@
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->description_en }}</td>
                         <td>{{ $product->category->name }}</td>
-                        <td>
-                            <img src="{{ Storage::url($product->img) }}" width="200px" height="100px" style="object-fit: cover" alt="">
-                        </td>
                     </tr>
                     </tbody>
                 </table>

@@ -13,7 +13,7 @@
                     @foreach($skus as $sku)
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img style="object-fit: cover;" width="100%" height="225" src="{{ Storage::url($sku->product->img) }}" alt="">
+                                <img style="object-fit: cover;" width="100%" height="225" src="{{ Storage::url($sku->img) }}" alt="">
                                 <div class="card-body">
                                     @if($sku->isAvailable())
                                         <div style="color: #fff; background: #dc3545; text-align: center; margin-bottom: 10px; border-radius: 5px">

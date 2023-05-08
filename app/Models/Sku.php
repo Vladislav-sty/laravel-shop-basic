@@ -10,7 +10,7 @@ class Sku extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id', 'count', 'price'];
+    protected $fillable = ['product_id', 'count', 'price', 'img'];
     protected $visible = ['id', 'count', 'price', 'product_name'];
 
     public function product(){

@@ -52,10 +52,6 @@
                         <input name="code" type="text" class="form-control" placeholder="Код" value="{{ old('code', isset($product) ? $product->code : null ) }}">
                     </div>
 
-                    <div class="form-label-group" style="margin-top: 10px">
-                        <input name="img" type="file" class="form-control" placeholder="Картинка">
-                    </div>
-
                     @error('description')
                         <div class="alert alert-danger" style="margin-top: 15px">
                             {{ $message }}

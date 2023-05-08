@@ -72,7 +72,7 @@ Route::group(['middleware'=>'set_locale'], function(){
     Route::get('categories', [CategoriesController::class, 'categories'])->name('categories');
     Route::get('category/{category_name}', [CategoriesController::class, 'category'])->name('category');
 
-    Route::get('product/{product_name}/{skus}', [ProductController::class, 'sku'])->name('sku');
+    Route::get('product/{product_name}/{skus}', '\App\Http\Controllers\ProductController@sku')->name('sku');
 
     Route::get('basket',[BasketController::class, 'basket'])->name('basket');
     Route::post('basket/add/{sku}', [BasketController::class, 'add'])->name('basket-add');

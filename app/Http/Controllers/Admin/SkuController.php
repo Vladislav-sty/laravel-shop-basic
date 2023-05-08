@@ -7,6 +7,8 @@ use App\Http\Requests\SkuRequest;
 use App\Models\Product;
 use App\Models\Sku;
 use Illuminate\Http\Request;
+use Illuminate\Session\Store;
+use Illuminate\Support\Facades\Storage;
 
 class SkuController extends Controller
 {
@@ -41,6 +43,14 @@ class SkuController extends Controller
     public function store(SkuRequest $request, Product $product)
     {
         $params = $request->all();
+
+        if($request->file('img')){
+            $path = $request->file('img')->store('skus');
+            $params['img'] = $path;
+        } else {
+            $params['img'] = 'null';
+        }
+
         $params['product_id'] = $request->product->id;
         $sku = Sku::create($params);
         $sku->propertyOptions()->sync($request->property_id);
@@ -81,9 +91,19 @@ class SkuController extends Controller
     public function update(SkuRequest $request,Product $product, Sku $sku)
     {
         $params = $request->all();
+
+        if($request['img']){
+            Storage::delete($sku->img);
+            $path = $request->file('img')->store('skus');
+            $params['img'] = $path;
+        }
+
         $params['product_id'] = $request->product->id;
         $sku->update($params);
         $sku->propertyOptions()->sync($request->property_id);
+
+        session()->flash('success', 'Sku оновлено');
+
         return redirect()->route('skus.index', $product);
     }
 
@@ -97,6 +117,7 @@ class SkuController extends Controller
     public function destroy(Product $product, Sku $sku)
     {
         $sku->skuPropertyOptions->map->delete();
+        Storage::delete($sku->img);
         $sku->delete();
         session()->flash('success', 'Sku видалено');
         return redirect()->route('skus.index', $product);

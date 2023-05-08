@@ -47,13 +47,6 @@ class ProductController extends Controller
     {
         $newProduct = $request->all();
 
-        if($request->file('img')){
-            $path = $request->file('img')->store('products');
-            $newProduct['img'] = $path;
-        } else {
-            $newProduct['img'] = 'null';
-        }
-
         foreach (['new', 'low', 'recommend'] as $field){
             if(isset($newProduct[$field])){
                 $newProduct[$field] = 1;
@@ -113,12 +106,6 @@ class ProductController extends Controller
 
         $newProduct = $request->all();
 
-        if($request['img']){
-            Storage::delete($product->img);
-            $path = $request->file('img')->store('products');
-            $newProduct['img'] = $path;
-        }
-
         foreach (['new', 'low', 'recommend'] as $field){
             if(isset($newProduct[$field])){
                 $newProduct[$field] = 1;
@@ -149,7 +136,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        Storage::delete($product->img);
         Product::destroy($id);
         session()->flash('success', 'Товар видалено');
         return redirect()->route('products.index');

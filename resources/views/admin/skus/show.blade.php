@@ -15,6 +15,7 @@
                         <th scope="col">id</th>
                         <th scope="col">Кількість</th>
                         <th scope="col">Ціна</th>
+                        <th scope="col">Картинка</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -22,6 +23,7 @@
                         <th scope="row">{{ $sku->id }}</th>
                         <td>{{ $sku->count }}</td>
                         <td>{{ $sku->price }} {{ \App\Classes\CurrencyConversion::getCurrencySymbol() }}</td>
+                        <td><img src="{{ Storage::url($sku->img) }}" width="200px" height="100px" style="object-fit: cover" alt=""></td>
                     </tr>
                     </tbody>
                 </table>

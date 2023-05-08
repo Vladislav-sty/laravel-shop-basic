@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div>
-            <img width="100%" height="350px" style="object-fit: cover;" src="{{ Storage::url($skus->product->img) }}" alt="">
+            <img width="100%" height="350px" style="object-fit: cover;" src="{{ Storage::url($skus->img) }}" alt="">
         </div>
         <div style="margin-top: 20px;">
             <h1 style="margin-bottom: 40px" class="display-7 fw-bold lh-1">{{ $skus->product->name }} ({{ $skus->propertyOptions->map->name->implode(', ') }})</h1>

@@ -42,6 +42,10 @@
                         <input name="count" type="text" class="form-control" placeholder="Кількість" autofocus="" value="{{ old('count', isset($sku) ? $sku->count : null ) }}">
                     </div>
 
+                    <div class="form-label-group" style="margin-top: 10px">
+                        <input name="img" type="file" class="form-control" placeholder="Картинка">
+                    </div>
+
                     @error('sku')
                     <div class="alert alert-danger" style="margin-top: 15px">
                         {{ $message }}
