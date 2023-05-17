@@ -72,10 +72,20 @@ class Basket
     }
 
     public function removeSku(Sku $sku){
+
+        /*if ($skuInOrder == $sku->id){
+            if ($skuInOrder->countInOrder < 2){
+                $this->order->skus->unset($i);
+            } else {
+                $skuInOrder->countInOrder--;
+            }
+        }*/
+
         for ($i=0; $i<count($this->order->skus); $i++){
             if ($this->order->skus[$i]->id == $sku->id){
                 if ($this->order->skus[$i]->countInOrder < 2){
-                    $this->order->skus->unset($i);
+                    $this->order->skus->forget($i);
+                    $this->order->skus = $this->order->skus->values();
                 } else {
                     $this->order->skus[$i]->countInOrder--;
                 }

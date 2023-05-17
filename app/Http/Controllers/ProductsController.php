@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
     public function allProducts() {
 //        $products = Product::with('category')->withTrashed()->get();
-        $skus = Sku::get();
+        $skus = Sku::with('product.category')->get();
         return view('products', compact('skus'));
     }
 }
