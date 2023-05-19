@@ -3,9 +3,13 @@
 @section('page-title', 'Laravel Shop')
 
 @section('content')
+
+    <div id="app">
+        <example-component></example-component>
+    </div>
+
     <div class="album py-5 bg-light">
         <div class="container">
-
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @error('price_from')
                     <div class="alert alert-danger">
@@ -129,3 +133,11 @@
         </div>
     </div>
 @endsection
+<script>
+    import HelloVue from "../js/components/HelloVue";
+    import ExampleComponent from "../js/components/ExampleComponent";
+    import TestComponent from "../js/components/TestComponent";
+    export default {
+        components: {TestComponent, ExampleComponent, HelloVue}
+    }
+</script>

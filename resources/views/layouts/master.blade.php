@@ -96,5 +96,6 @@
 </footer>
 <script src="/bootstrap/bootstrap.min.js"></script>
 <script src="/js/jquery.min.js"></script>
+<script src="{{ mix('js/app.js') }}" type="module" defer ></script>
 </body>
 </html>

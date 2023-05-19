@@ -8,6 +8,10 @@
                     <div class="card-body">
                         I'm an example component.
                     </div>
+
+                    <button>
+                        Рахунок: {{ count }}
+                    </button>
                 </div>
             </div>
         </div>
@@ -16,8 +20,15 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+        name: "ExampleComponent",
+        data(){
+            return{
+                count: "111",
+            }
+        },
     }
 </script>
+
+<style scoped>
+
+</style>
