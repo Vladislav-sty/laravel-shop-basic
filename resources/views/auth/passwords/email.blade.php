@@ -1,3 +1,36 @@
+@extends('layouts.master')
+
+@section('page-title', 'Відновлення паролю')
+
+@section('content')
+
+    <div class="container" style="max-width: 500px; padding-top: 100px">
+        <form class="form-signin" action="{{ route('password.email') }}" method="post">
+            @csrf
+
+            <h2>Відновлення паролю</h2>
+
+            @error('email')
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
+            <div class="form-label-group">
+                <input name="email" type="text" id="inputEmail" class="form-control" placeholder="E-mail" autofocus="">
+            </div>
+
+            <button style="margin-top: 20px" class="btn btn-lg btn-danger btn-block" type="submit">Відновити</button>
+        </form>
+    </div>
+
+@endsection
+
+
+
+
+
+
+{{--
 @extends('layouts.app')
 
 @section('content')
@@ -45,3 +78,4 @@
     </div>
 </div>
 @endsection
+--}}

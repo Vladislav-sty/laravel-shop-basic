@@ -13,6 +13,7 @@ class ProductController extends Controller
             abort(404);
         }
 /*        $product = Product::where('code',$product_code)->withTrashed()->first();*/
+
         return view('product', compact('skus'));
     }
 }

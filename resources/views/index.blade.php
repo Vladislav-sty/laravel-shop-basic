@@ -4,10 +4,6 @@
 
 @section('content')
 
-    <div id="app">
-        <example-component></example-component>
-    </div>
-
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -84,9 +80,15 @@
                         </div>
                     @endforeach
                 @endif
+
+{{--                <div style="width: 100%">--}}
+{{--                    {{ $skus->links() }}--}}
+{{--                </div>--}}
+
                 <div style="width: 100%">
-                    {{ $skus->links() }}
+                    {{ $skus->links('pagination.custom') }}
                 </div>
+
                 <h2 style="width: 100%; margin-top: 50px; padding: 20px; background: #ffc107; color: #fff">@lang('product.best_products_recom')</h2>
                 @foreach($bestSkus as $bestSku)
                     <div class="col">

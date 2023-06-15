@@ -1,0 +1,23 @@
+.pagination li{
+    margin: 0 5px;
+}
+.pagination li:first-of-type{
+    margin-left: 0;
+}
+.pagination li a,
+.pagination li.disabled,
+.pagination li.active{
+    padding: 10px;
+    background: #fff;
+    border: 1px solid grey;
+    border-radius: 10px !important;
+    color: #000;
+}
+.pagination li a.page-link:hover,
+.pagination li.active{
+    background: #0d6efd;
+    color: #fff;
+}
+.pagination li.disabled{
+    display: none;
+}

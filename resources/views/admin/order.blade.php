@@ -27,14 +27,14 @@
                 @foreach($order->skus()->get() as $sku)
                     <tr>
                         <th scope="row">{{ $sku->id }}</th>
-                        <td><a href="{{ route('sku', [$sku->product->code,$sku]) }}">{{ $sku->name }}</a></td>
+                        <td><a href="{{ route('sku', [$sku->product->code,$sku]) }}">{{ $sku->product->name }}</a></td>
                         <td>{{ $sku->pivot->count }}</td>
                         <td>{{ $sku->price * $sku->pivot->count }} {{ \App\Classes\CurrencyConversion::getCurrencySymbol() }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            @if($order->coupon())
+            @if($order->coupon)
                 <div>
                     <div style="display: inline-block; background: #EB1D36; color: #fff; padding: 0 10px">
                         Використано промо-код: {{ $order->coupon->code }}

@@ -47,7 +47,9 @@ class HomeController extends Controller
             }
         }
 
-        $skus = $skusQuery->simplePaginate(3)->withPath("?" . $request->getQueryString());
+//        $skus = $skusQuery->simplePaginate(3)->withPath("?" . $request->getQueryString());
+        $skus = $skusQuery->paginate(3)->withPath("?" . $request->getQueryString());
+
         return view('index', compact('skus'));
     }
 

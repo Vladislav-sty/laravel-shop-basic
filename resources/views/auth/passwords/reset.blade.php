@@ -1,4 +1,54 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('page-title', 'Відновлення паролю')
+
+@section('content')
+
+    <div class="container" style="max-width: 500px; padding-top: 100px">
+        <form class="form-signin" method="POST" action="{{ route('password.update') }}">
+            @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
+
+            <h2>Вкажіть новий пароль у поля нижче</h2>
+
+            @error('email')
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
+            @enderror
+            <div class="form-label-group">
+                <input name="email" type="text" id="inputEmail" class="form-control" placeholder="E-mail" autofocus="" value="{{ $email ?? old('email') }}">
+            </div>
+
+            @error('password')
+            <div class="alert alert-danger" style="margin-top: 10px">
+                {{ $message }}
+            </div>
+            @enderror
+            <div class="form-label-group" style="margin-top: 10px">
+                <input name="password" type="password" class="form-control" placeholder="Пароль">
+            </div>
+
+            <div class="form-label-group" style="margin-top: 10px">
+                <input name="password_confirmation" type="password" class="form-control" placeholder="Підтвердіть пароль">
+            </div>
+
+            <button style="margin-top: 20px" class="btn btn-lg btn-primary btn-block" type="submit">Відновити</button>
+        </form>
+    </div>
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+{{--@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -62,4 +112,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection--}}

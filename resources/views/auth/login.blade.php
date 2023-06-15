@@ -28,6 +28,10 @@
                 <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="">
             </div>
 
+            <div>
+                <a href="{{ route('password.request') }}">Забули пароль ?</a>
+            </div>
+
             <button style="margin-top: 20px" class="btn btn-lg btn-danger btn-block" type="submit">Увійти</button>
         </form>
     </div>
